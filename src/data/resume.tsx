@@ -3,7 +3,7 @@ import { Icons } from "@/components/icons";
 export const DATA = {
   name: "Neerajkumar",
   initials: "NC",
-  url: "https://example.com",
+  url: "https://neerajkumar.vercel.app/",
   location: "Pune, India",
   locationLink: "https://www.google.com/maps/place/pune",
   description:
