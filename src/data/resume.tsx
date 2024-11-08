@@ -63,16 +63,16 @@ export const DATA = {
 
   work: [
     {
-      company: "Stealth Startup",
+      company: "Cogitare Labs LLP",
       href: "#",
       badges: [],
       location: "Remote",
       title: "Frontend Engineer",
-      logoUrl: "/startup.png",
+      logoUrl: "/work/cogitarelabs.png",
       start: "Aug 2024",
-      end: "Present",
+      end: "Nov 2024",
       description:
-        "Developing user-friendly web application using TypeScript, Next.js, and React. Utilizing TanStack Query for data fetching and Zustand for state management. Also building a mobile app using React Native and TypeScript.",
+        "Built and maintained responsive user interfaces with Next.js and Tailwind CSS for seamless user experiences, collaborating closely with backend teams to implement features, resolve issues, and ensure a cohesive product. Leveraged AWS for efficient image uploads and storage, implemented real-time socket communication, and optimized load times to enhance frontend performance. Utilized state management tools like Zustand and Context API for efficient application state management, and developed reusable components for a clean, scalable codebase, contributing to the project’s overall maintainability.",
     },
   ],
   projects: [
@@ -98,7 +98,7 @@ export const DATA = {
       title: "JobHunt",
       href: "https://jobhuntai.vercel.app/",
       dates: "2024",
-      active: true,
+      active: false,
       description:
         "Helps users craft cold emails, cover letters, and interview questions using tailored generators. Generated 100+ letters and questions in 2 weeks post-launch.",
       technologies: ["Next.js", "Gemini AI API"],
@@ -116,7 +116,7 @@ export const DATA = {
       title: "AI Quiz Generator",
       href: "https://aiquizgenerator.vercel.app/",
       dates: "2024",
-      active: true,
+      active: false,
       description:
         "AI-powered quiz generation from text with dynamic content and an interactive interface. Generated 300+ quizzes in a month.",
       technologies: ["Node.js", "Express.js", "Gemini AI API"],
@@ -134,7 +134,7 @@ export const DATA = {
       title: "Endless Chain Story",
       href: "https://endlesschainstory.vercel.app/",
       dates: "2024",
-      active: true,
+      active: false,
       description:
         "Created a collaborative storytelling platform allowing users to contribute sentences to an ongoing narrative, featuring sentence validation and device fingerprinting.",
       technologies: ["Next.js", "Firebase", "Gemini AI API"],
