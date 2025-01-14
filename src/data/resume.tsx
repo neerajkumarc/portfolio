@@ -77,6 +77,28 @@ export const DATA = {
   ],
   projects: [
     {
+      title: "YouTube Playlist Organiser",
+      href: "https://yt-playlist-organiser.vercel.app/",
+      dates: "2025",
+      active: true,
+      description:
+        "A Next.js application that helps you organize and manage your YouTube playlists efficiently using AI. Features include viewing and managing playlists, organizing videos within playlists, and a clean, modern user interface.",
+      technologies: [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "YouTube Data API",
+        "AI",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://yt-playlist-organiser.vercel.app/",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+    },
+    {
       title: "Global-Gamers-Hub",
       href: "https://globalgamers-hub.vercel.app/",
       dates: "2024",
