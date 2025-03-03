@@ -97,7 +97,29 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         },
       ],
-      image: "",
+      image: "/projects/yt-playlist.png",
+      video: "",
+    },
+    {
+      title: "mift",
+      href: "https://mift.vercel.app/",
+      dates: "2025",
+      active: false,
+      description:
+        "A minimal financial tracker that helps you keep track of your expenses and income. Built with Next.js, TypeScript, and Tailwind CSS, offering a clean and user-friendly interface for managing your finances.",
+      technologies: [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://mift.vercel.app/",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "/projects/mift.png",
       video: "",
     },
     {
