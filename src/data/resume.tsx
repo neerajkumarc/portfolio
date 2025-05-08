@@ -67,6 +67,18 @@ export const DATA = {
       href: "#",
       badges: [],
       location: "Remote",
+      title: "React Native Developer",
+      logoUrl: "/work/cogitarelabs.png",
+      start: "Nov 2024",
+      end: "Present",
+      description:
+        "Currently developing and maintaining mobile applications using React Native, ensuring cross-platform compatibility and optimal performance. Working on implementing responsive UI components, integrating RESTful APIs, and utilizing native device features. Collaborating with the team to deliver high-quality mobile solutions while following best practices and maintaining code quality.",
+    },
+    {
+      company: "Cogitare Labs LLP",
+      href: "#",
+      badges: [],
+      location: "Remote",
       title: "Frontend Engineer",
       logoUrl: "/work/cogitarelabs.png",
       start: "Aug 2024",
@@ -107,11 +119,7 @@ export const DATA = {
       active: false,
       description:
         "A minimal financial tracker that helps you keep track of your expenses and income. Built with Next.js, TypeScript, and Tailwind CSS, offering a clean and user-friendly interface for managing your finances.",
-      technologies: [
-        "Next.js",
-        "TypeScript",
-        "Tailwind CSS",
-      ],
+      technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
       links: [
         {
           type: "Website",
