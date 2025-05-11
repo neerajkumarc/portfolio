@@ -38,13 +38,6 @@ export const DATA = {
         navbar: true,
       },
       {
-        name: "LinkedIn",
-        url: "https://www.linkedin.com/in/neerajkumar31",
-        icon: Icons.linkedin,
-
-        navbar: true,
-      },
-      {
         name: "Twitter",
         url: "https://x.com/neerajkumar_31",
         icon: Icons.x,
