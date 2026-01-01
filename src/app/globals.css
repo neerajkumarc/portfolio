@@ -34,6 +34,26 @@
 
       --radius: 0.5rem;
     }
+    @keyframes gradient-xy {
+      0% {
+        transform: translate(0%, 0%) scale(1);
+      }
+      25% {
+        transform: translate(20%, -20%) scale(1.1);
+      }
+      50% {
+        transform: translate(-10%, 10%) scale(0.9);
+      }
+      75% {
+        transform: translate(-15%, -15%) scale(1.05);
+      }
+      100% {
+        transform: translate(0%, 0%) scale(1);
+      }
+    }
+    .animate-gradient-xy {
+      animation: gradient-xy 15s ease infinite;
+    }
 
     .dark {
       --background: 210 11.1% 3.53%;

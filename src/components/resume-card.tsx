@@ -44,67 +44,75 @@ export const ResumeCard = ({
       className="block cursor-pointer"
       onClick={handleClick}
     >
-      <Card className="flex">
-        <div className="flex-none">
-          <Avatar className="border border-white size-12 m-auto bg-muted-background dark:bg-foreground">
-            <AvatarImage
-              src={logoUrl}
-              alt={altText}
-              className="object-contain"
-            />
-            <AvatarFallback>{altText[0]}</AvatarFallback>
-          </Avatar>
-        </div>
-        <div className="flex-grow ml-4 items-center flex-col group">
-          <CardHeader>
-            <div className="flex items-center justify-between gap-x-2 text-base">
-              <h3 className="inline-flex items-center justify-center font-semibold leading-none text-xs sm:text-sm">
-                {title}
-                {badges && (
-                  <span className="inline-flex gap-x-1">
-                    {badges.map((badge, index) => (
-                      <Badge
-                        variant="secondary"
-                        className="align-middle text-xs"
-                        key={index}
-                      >
-                        {badge}
-                      </Badge>
-                    ))}
-                  </span>
-                )}
-                <ChevronRightIcon
-                  className={cn(
-                    "size-4 translate-x-0 transform opacity-0 transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100",
-                    isExpanded ? "rotate-90" : "rotate-0"
+      <motion.div
+        whileHover={{
+          scale: 1.02,
+          transition: { duration: 0.2 }
+        }}
+        className="rounded-lg overflow-hidden"
+      >
+        <Card className="flex p-4 bg-card/50 hover:bg-card transition-colors border-none shadow-none">
+          <div className="flex-none">
+            <Avatar className="border size-12 m-auto bg-muted-background dark:bg-foreground">
+              <AvatarImage
+                src={logoUrl}
+                alt={altText}
+                className="object-contain"
+              />
+              <AvatarFallback>{altText[0]}</AvatarFallback>
+            </Avatar>
+          </div>
+          <div className="flex-grow ml-4 items-center flex-col group">
+            <CardHeader>
+              <div className="flex items-center justify-between gap-x-2 text-base">
+                <h3 className="inline-flex items-center justify-center font-semibold leading-none text-xs sm:text-sm">
+                  {title}
+                  {badges && (
+                    <span className="inline-flex gap-x-1">
+                      {badges.map((badge, index) => (
+                        <Badge
+                          variant="secondary"
+                          className="align-middle text-xs"
+                          key={index}
+                        >
+                          {badge}
+                        </Badge>
+                      ))}
+                    </span>
                   )}
-                />
-              </h3>
-              <div className="text-xs sm:text-sm tabular-nums text-muted-foreground text-right">
+                  <ChevronRightIcon
+                    className={cn(
+                      "size-4 translate-x-0 transform opacity-0 transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100",
+                      isExpanded ? "rotate-90" : "rotate-0"
+                    )}
+                  />
+                </h3>
+              </div>
+              {subtitle && <div className="font-sans text-xs">{subtitle}</div>}
+              <div className="text-xs md:text-sm tabular-nums text-muted-foreground md:absolute md:right-4 ">
                 {period}
               </div>
-            </div>
-            {subtitle && <div className="font-sans text-xs">{subtitle}</div>}
-          </CardHeader>
-          {description && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{
-                opacity: isExpanded ? 1 : 0,
+            </CardHeader>
+            {description && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{
+                  opacity: isExpanded ? 1 : 0,
 
-                height: isExpanded ? "auto" : 0,
-              }}
-              transition={{
-                duration: 0.7,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              className="mt-2 text-xs sm:text-sm"
-            >
-              {description}
-            </motion.div>
-          )}
-        </div>
-      </Card>
+                  height: isExpanded ? "auto" : 0,
+                }}
+                transition={{
+                  duration: 0.7,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                className="mt-2 text-xs sm:text-sm"
+              >
+                {description}
+              </motion.div>
+            )}
+          </div>
+        </Card>
+      </motion.div>
     </Link>
   );
 };
