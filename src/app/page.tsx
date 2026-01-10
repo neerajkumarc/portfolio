@@ -1,3 +1,5 @@
+"use client";
+
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { ProjectCard } from "@/components/project-card";
@@ -8,10 +10,14 @@ import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
 import { ChevronRight } from "lucide-react";
+import { useState } from "react";
+import { TabSwitcher } from "@/components/tab-switcher";
+import { AnimatePresence, motion } from "framer-motion";
 
 const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
+  const [activeTab, setActiveTab] = useState<string>("websites");
   const websiteProjects = DATA.projects.filter((project) => project.type === "Website");
   const appProjects = DATA.projects.filter((project) => project.type === "App");
 
@@ -20,7 +26,7 @@ export default function Page() {
       {/* Background Gradients */}
       <div className="fixed inset-0 -z-10 h-full w-full bg-white dark:bg-black">
         <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[510px] w-[510px] rounded-full bg-gray-200 opacity-20 blur-[200px] animate-gradient-xy"></div>
-        <div className="absolute right-0 bottom-0 -z-10 m-auto h-510px] w-[510px] rounded-full bg-gray-200 opacity-20 blur-[200px] animate-gradient-xy"></div>
+        <div className="absolute right-0 bottom-0 -z-10 m-auto h-[510px] w-[510px] rounded-full bg-gray-200 opacity-20 blur-[200px] animate-gradient-xy"></div>
       </div>
 
       <section id="hero">
@@ -114,75 +120,53 @@ export default function Page() {
             </div>
           </BlurFade>
 
-          {/* Websites Section */}
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto mb-8">
-
-            <h3 className="col-span-full text-lg font-semibold text-muted-foreground mb-2"><BlurFadeText text="Websites" delay={BLUR_FADE_DELAY * 12} /> </h3>
-
-            {websiteProjects.slice(0, 4).map((project, id) => (
-              <BlurFade
-                key={project.title}
-                delay={BLUR_FADE_DELAY * 12 + id * 0.05}
-              >
-                <ProjectCard
-                  href={project.href}
-                  key={project.title}
-                  title={project.title}
-                  active={project.active}
-                  description={project.description}
-                  dates={project.dates}
-                  tags={project.technologies}
-                  image={project.image}
-                  video={project.video}
-                  links={project.links}
-                />
-              </BlurFade>
-            ))}
-          </div>
-
-          {/* Apps Section */}
-          {appProjects.length > 0 && (
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto">
-              <h3 className="col-span-full text-lg font-semibold text-muted-foreground mb-2"><BlurFadeText text="Apps" delay={BLUR_FADE_DELAY * 13} /> </h3>
-              {appProjects.slice(0, 4).map((project, id) => (
-                <BlurFade
-                  key={project.title}
-                  delay={BLUR_FADE_DELAY * 13 + id * 0.05}
-                >
-                  <ProjectCard
-                    href={project.href}
-                    key={project.title}
-                    title={project.title}
-                    active={project.active}
-                    description={project.description}
-                    dates={project.dates}
-                    tags={project.technologies}
-                    image={project.image}
-                    video={project.video}
-                    links={project.links}
-                  />
-                </BlurFade>
-              ))}
+          <BlurFade delay={BLUR_FADE_DELAY * 11.5}>
+            <div className="flex mb-6">
+              <TabSwitcher
+                tabs={[
+                  { id: "websites", label: "Websites" },
+                  { id: "apps", label: "Apps" },
+                ]}
+                activeTab={activeTab}
+                onChange={setActiveTab}
+              />
             </div>
-          )}
+          </BlurFade>
 
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+            >
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto">
+                {(activeTab === "websites" ? websiteProjects : appProjects).slice(0, 4).map((project, id) => (
+                  <BlurFade
+                    key={project.title}
+                    delay={BLUR_FADE_DELAY * 12 + id * 0.05}
+                  >
+                    <ProjectCard
+                      href={project.href}
+                      key={project.title}
+                      title={project.title}
+                      active={project.active}
+                      description={project.description}
+                      dates={project.dates}
+                      tags={project.technologies}
+                      image={project.image}
+                      video={project.video}
+                      links={project.links}
+                    />
+                  </BlurFade>
+                ))}
+              </div>
+            </motion.div>
+          </AnimatePresence>
         </div>
       </section>
-
-      {/* <section id="skills">
-        <div className="flex min-h-0 flex-col gap-y-3">
-          <BlurFade delay={BLUR_FADE_DELAY * 9}>
-            <h2 className="text-xl font-bold">Skills</h2>
-          </BlurFade>
-          <div className="flex flex-wrap gap-1">
-            {DATA.skills.map((skill, id) => (
-              <BlurFade key={skill} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
-                <Badge key={skill}>{skill}</Badge>
-              </BlurFade>
-            ))}
-          </div>
-        </div>
-      </section> */}
     </main>
   );
 }
+

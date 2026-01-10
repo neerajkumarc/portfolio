@@ -1,6 +1,7 @@
 "use client";
 
 import BlurFade from "@/components/magicui/blur-fade";
+import { TabSwitcher } from "@/components/tab-switcher";
 import { ProjectCard } from "@/components/project-card";
 import { DATA } from "@/data/resume";
 import { motion, AnimatePresence } from "framer-motion";
@@ -10,7 +11,7 @@ import { useState } from "react";
 const BLUR_FADE_DELAY = 0.04;
 
 export default function ProjectsPage() {
-    const [activeTab, setActiveTab] = useState<"websites" | "apps">("websites");
+    const [activeTab, setActiveTab] = useState<string>("websites");
     const websiteProjects = DATA.projects.filter(
         (project) => project.type === "Website"
     );
@@ -47,30 +48,14 @@ export default function ProjectsPage() {
             {/* Tab Switcher */}
             <section id="tabs" className="flex justify-center w-full">
                 <BlurFade delay={BLUR_FADE_DELAY * 1.5}>
-                    <div className="flex p-1 bg-neutral-100 dark:bg-neutral-900 rounded-full border border-neutral-200 dark:border-neutral-800">
-                        {[
+                    <TabSwitcher
+                        tabs={[
                             { id: "websites", label: "Websites" },
                             { id: "apps", label: "Apps" },
-                        ].map((tab) => (
-                            <button
-                                key={tab.id}
-                                onClick={() => setActiveTab(tab.id as "websites" | "apps")}
-                                className={`relative px-6 py-2 text-sm font-medium transition-colors rounded-full duration-200 ${activeTab === tab.id
-                                    ? "text-black dark:text-white"
-                                    : "text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200"
-                                    }`}
-                            >
-                                {activeTab === tab.id && (
-                                    <motion.div
-                                        layoutId="active-tab"
-                                        className="absolute inset-0 bg-white dark:bg-neutral-800 rounded-full shadow-sm border border-neutral-200 dark:border-neutral-700 pointer-events-none"
-                                        transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                                    />
-                                )}
-                                <span className="relative z-10">{tab.label}</span>
-                            </button>
-                        ))}
-                    </div>
+                        ]}
+                        activeTab={activeTab}
+                        onChange={setActiveTab}
+                    />
                 </BlurFade>
             </section>
 

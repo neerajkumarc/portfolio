@@ -82,18 +82,40 @@ export const DATA = {
   ],
   projects: [
     {
+      title: "Electro Velo Landing Page",
+      href: "https://electro-velo-three.vercel.app/",
+      dates: "2026",
+      active: false,
+      type: "Website",
+      description:
+        "A moden clean landing page for electro velo, an e-bike company.",
+      technologies: [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://electro-velo-three.vercel.app/",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "/projects/electro-velo.png",
+      video: "",
+    },
+    {
       title: "YouTube Playlist Organiser",
       href: "https://yt-playlist-organiser.vercel.app/",
       dates: "2025",
       active: true,
       type: "Website",
       description:
-        "A Next.js application that helps you organize and manage your YouTube playlists efficiently using AI. Features include viewing and managing playlists, organizing videos within playlists, and a clean, modern user interface.",
+        "A app that helps you organize and manage your YouTube playlists efficiently using AI.",
       technologies: [
         "Next.js",
         "TypeScript",
         "Tailwind CSS",
-        "YouTube Data API",
         "AI",
       ],
       links: [
